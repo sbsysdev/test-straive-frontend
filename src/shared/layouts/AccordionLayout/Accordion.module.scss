@@ -1,0 +1,9 @@
+@import '@styles';
+
+.Wrapper {
+    @include flex;
+
+    & > [slot='body'] {
+        flex-grow: 1;
+    }
+}

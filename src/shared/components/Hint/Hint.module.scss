@@ -1,0 +1,15 @@
+@import '@styles';
+
+.Hint {
+    &[data-has-error='true'] {
+        @include font-color(60, secondary);
+    }
+
+    &[data-is-empty='true'] {
+        @include opacity(0);
+    }
+
+    &.Dots {
+        @include dots;
+    }
+}

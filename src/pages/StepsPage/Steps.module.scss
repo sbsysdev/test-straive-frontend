@@ -1,0 +1,13 @@
+@import '@styles';
+
+.Wrapper {
+    @include flex;
+    flex-grow: 1;
+
+    & > .List {
+        @include flex;
+        @include max-width(sm, view);
+        margin: 0 auto;
+        width: 100%;
+    }
+}

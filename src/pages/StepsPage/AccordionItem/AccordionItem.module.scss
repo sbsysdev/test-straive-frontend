@@ -1,0 +1,74 @@
+@import '@styles';
+
+.Wrapper {
+    &.Underlined {
+        @include border-color(bottom 40);
+        @include border-width(bottom xs);
+    }
+
+    & > [slot='header'] {
+        @include flex(row, center, space-between);
+        @include gap(all sm);
+        @include padding(all xs);
+
+        &.Available {
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                @include bg-color(80, primary);
+                @include bg-opacity(10);
+            }
+        }
+
+        & > h2 {
+            @include dots;
+            @include font-weight(80);
+        }
+
+        & > button {
+            @include disabled;
+            @include font-color(40);
+            @include padding(all xs);
+            @include rounded(all lg);
+        }
+
+        & > .Available {
+            @include enabled;
+            @include font-color(80, primary);
+            @include font-size(2xl);
+            @include interactable;
+            @include padding(all sm split);
+        }
+    }
+
+    & > [slot='body'] {
+        overflow: hidden;
+        transition: max-height 0.4s ease-in;
+
+        & > section {
+            @include flex;
+            @include padding(all sm);
+            @include gap(all md);
+
+            & > figure {
+                @include flex;
+
+                & > figcaption {
+                    display: none;
+                }
+            }
+
+            @include screen-width(xs) {
+                align-items: center;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                & > figure {
+                    grid-column: 2;
+                    grid-row: 1;
+                }
+            }
+        }
+    }
+}

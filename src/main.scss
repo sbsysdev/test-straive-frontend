@@ -1,0 +1,53 @@
+@import 'modern-normalize/modern-normalize.css';
+@import '@styles';
+
+:root {
+    @include generate-theme($base-theme);
+}
+
+* {
+    @include normalize;
+}
+
+body {
+    height: 100vh;
+    margin: inherit;
+    padding: inherit;
+}
+
+body,
+#root {
+    @include flex;
+}
+
+#root {
+    @include bg-color(l30);
+    @include font-color(d10);
+    @include font-family;
+    @include font-size(16, text);
+    @include line-height(sm);
+    flex-grow: 1;
+
+    @include theme(dark, false) {
+        @include bg-color(d30);
+        @include font-color(l30);
+    }
+}
+
+#modal {
+    z-index: 110;
+}
+#loader {
+    z-index: 120;
+}
+#notification {
+    z-index: 130;
+}
+
+i {
+    @include flex(column, center, center);
+}
+
+.material-icons {
+    font-size: inherit;
+}
